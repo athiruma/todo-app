@@ -1,0 +1,14 @@
+<form {{on "submit" this.onSubmit}}>
+  <Form::FormRow>
+    <Form::FormGroup class="col-md-6">
+      <Form::TextField
+        @name="title"
+        @updateMessage={{this.updateMessage}}
+        @message={{this.message}}
+      />
+    </Form::FormGroup>
+    <Form::FormGroup class="col-md-2">
+      <Form::Submit class="btn btn-primary" />
+    </Form::FormGroup>
+  </Form::FormRow>
+</form>

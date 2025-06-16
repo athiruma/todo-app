@@ -1,0 +1,19 @@
+<Table::Tr>
+  <Table::Td>
+    <Form::Checkbox
+      @checked={{if @item.status @item.status false}}
+      @id={{@item.id}}
+      @updateStatus={{@handleUpdateStatus}}
+      @name="task-{{@item.id}}"
+    />
+  </Table::Td>
+  <Table::Td @body={{@item.title}} />
+  <Table::Td>
+    <Form::Button
+      class="btn-danger"
+      type="button"
+      {{on "click" (fn @handleDeleteTask @item.id)}}
+    >
+      <i class="fa fa-trash"></i></Form::Button>
+  </Table::Td>
+</Table::Tr>

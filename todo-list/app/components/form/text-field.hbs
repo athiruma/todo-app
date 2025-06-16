@@ -1,0 +1,14 @@
+{{#if @label}}
+  <label for="{{@label}}">{{@label}}</label>
+{{/if}}
+
+<input
+  id={{if @label @label ""}}
+  name={{@name}}
+  type="text"
+  value={{@message}}
+  {{on "input" this.handleInput}}
+  placeholder="Type a message here..."
+  class="form-control"
+  ...attributes
+/>

@@ -1,0 +1,24 @@
+{{page-title "Tasks"}}
+<div class="container-fluid">
+  <InputForm @createTask={{this.createTask}} />
+  <div class="container row col-md-8 mt-4">
+    <h4>Todo Tasks</h4>
+    {{#if this.model}}
+      {{! template-lint-disable table-groups }}
+      <table class="table table-bordered table-hover">
+        <Table::Thead @headers={{this.headers}} />
+        <tbody>
+          {{#each this.sortedTasks as |task|}}
+            <Tasks::Task
+              @item={{task}}
+              @handleUpdateStatus={{this.updateStatus}}
+              @handleDeleteTask={{this.deleteTask}}
+            />
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>No tasks...</p>
+    {{/if}}
+  </div>
+</div>
